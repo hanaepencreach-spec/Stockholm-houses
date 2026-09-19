@@ -1,35 +1,41 @@
 from turtle import *
 
-
-# forward(100)
-up()
-backward(256)
-right (90)
-forward(100)
-left(90)
-forward(512)
-down()
-
-
-
-
-def buildings():
-    if pos(0,0):
-        return None
-    if i == 1 or 3 or 5:
-        color("black", "#232555")  # Trait bleu, remplissage jaune
-    # elif i == 2 or 4:
-    #     color("black","#3e4095") #Trait bleu, remplissage jaune
-
+def bld(x,y,L,H,color):
+    """Parameters of my skyscrapers"""
+    up()
+    goto(x,y)
+    down()
+    fillcolor(color)
     begin_fill()
     for i in range(2):
-        left(90)
-        forward(200)
-        left(90)
-        forward(50)
-
+        fd(L)
+        lt(90)
+        fd(H)
+        lt(90)
     end_fill()
 
-    backward(50)
+bld(0, 0, 60, 100, "#232555")
+
+def wdw(x, y, L, H, color):
+    """parameters of my windows"""
+    up()
+    goto(x,y)
+    down()
+    pencolor("#232555")
+    fillcolor(color)
+    begin_fill()
+    for i in range(2):
+        fd(L)
+        lt(90)
+        fd(H)
+        lt(90)
+    end_fill()
+    
+y = [10, 30, 50, 70]
+for ordo in y:
+    wdw(10,ordo, 15, 10, "white")
+    wdw(45,ordo, 15, 10, "white")
+
+
 
 done()
