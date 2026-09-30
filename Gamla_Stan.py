@@ -1,5 +1,7 @@
 from turtle import *
 from random import *
+from math import *
+
 setup(width=800, height=600)
 
 def rdc(x,y,color):
@@ -76,10 +78,25 @@ def bld(x, y, color):
     for _ in range(number_of_floors):
         floor(x, y+ 60, color)
         y +=60
+    roof(x,y)
+
+def roof(x, y):
+    """ define roofs"""
+    up()
+    goto(x,y+60)
+    down()
+    fd(140)
+    left(150)
+    fd(70//cos(radians(30)))
+    left(60)
+    fd(70//cos(radians(30)))
+    left(150)
+
 
 bld_1 = bld(0, -100, "red")
 bld_2 = bld(150, -100, "green")
 bld_3 = bld(-150, -100, "blue")
+bld_4 = bld(-300, -100, "purple")
     
 
 
