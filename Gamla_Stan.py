@@ -3,6 +3,7 @@ from random import *
 from math import *
 
 setup(width=800, height=600)
+speed(8)
 
 def rdc(x,y,color):
     """ Define the first floor"""
@@ -78,26 +79,46 @@ def bld(x, y, color):
     for _ in range(number_of_floors):
         floor(x, y+ 60, color)
         y +=60
-    roof(x,y)
+    choose = [roof, rooftop]
+    cho_roof = choice(choose)
+    cho_roof(x, y, color)
 
-def roof(x, y):
+def roof(x, y, color):
     """ define roofs"""
     up()
     goto(x,y+60)
     down()
+    fillcolor(color)
+    begin_fill()
     fd(140)
     left(150)
     fd(70//cos(radians(30)))
     left(60)
     fd(70//cos(radians(30)))
     left(150)
+    end_fill()
 
+def rooftop(x, y, color):
+    "roof2"
+    up()
+    goto(x, y+60)
+    down()
+    fillcolor(color)
+    fillcolor("black")
+    begin_fill()
+    for _ in range(2):
+        fd(140)
+        left(90)
+        fd(5)
+        left(90)
+    end_fill()
 
-bld_1 = bld(0, -100, "red")
-bld_2 = bld(150, -100, "green")
-bld_3 = bld(-150, -100, "blue")
-bld_4 = bld(-300, -100, "purple")
+bld_1 = bld(-10, -100, "#FFA500")
+bld_2 = bld(150, -100, "#FDDE21")
+bld_3 = bld(-150, -100, "#DB1702")
+bld_4 = bld(-300, -100, "#6B7B9B")
     
 
-
+up()
+goto(-450, 0)
 done()
